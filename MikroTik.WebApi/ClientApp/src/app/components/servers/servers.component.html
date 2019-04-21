@@ -1,0 +1,8 @@
+<div class="container">
+  <h3>Servers</h3>
+  <div class="list-group">
+    <a *ngFor="let server of servers" [routerLink]="['server', server.id, 'people']" class="list-group-item">
+      {{ server.hostname }}
+    </a>
+  </div>
+</div>

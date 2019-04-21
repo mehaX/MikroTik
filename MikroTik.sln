@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28721.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E7B09236-0BE6-40E5-AD80-F3CB2C46C599}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B750C5EF-707E-4EB2-8F52-F4C4ACA4FCA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D011697F-74D9-4A02-A2E7-035436294051}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{CF681D10-CFF2-4AD9-B6CF-E1A7E8610FFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroTik.WebApi", "MikroTik.WebApi\MikroTik.WebApi.csproj", "{C05673E7-43A2-4723-80BD-23B0ED4F7156}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroTik.Infrastructure", "MikroTik.Infrastructure\MikroTik.Infrastructure.csproj", "{82717D95-2902-43B7-91ED-ED1A6D8E413E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikroTik.Persistence", "MikroTik.Persistence\MikroTik.Persistence.csproj", "{0587B38F-3A52-412F-9C6B-3573EE33F224}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikroTik.Domain", "MikroTik.Domain\MikroTik.Domain.csproj", "{D142F117-5B17-4B62-82BE-99EBDBC1ABAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikroTik.Application", "MikroTik.Application\MikroTik.Application.csproj", "{0EFAB3DC-5744-4551-806F-3736F7277226}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C05673E7-43A2-4723-80BD-23B0ED4F7156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05673E7-43A2-4723-80BD-23B0ED4F7156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05673E7-43A2-4723-80BD-23B0ED4F7156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05673E7-43A2-4723-80BD-23B0ED4F7156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82717D95-2902-43B7-91ED-ED1A6D8E413E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82717D95-2902-43B7-91ED-ED1A6D8E413E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82717D95-2902-43B7-91ED-ED1A6D8E413E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82717D95-2902-43B7-91ED-ED1A6D8E413E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0587B38F-3A52-412F-9C6B-3573EE33F224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0587B38F-3A52-412F-9C6B-3573EE33F224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0587B38F-3A52-412F-9C6B-3573EE33F224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0587B38F-3A52-412F-9C6B-3573EE33F224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D142F117-5B17-4B62-82BE-99EBDBC1ABAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D142F117-5B17-4B62-82BE-99EBDBC1ABAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D142F117-5B17-4B62-82BE-99EBDBC1ABAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D142F117-5B17-4B62-82BE-99EBDBC1ABAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EFAB3DC-5744-4551-806F-3736F7277226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EFAB3DC-5744-4551-806F-3736F7277226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EFAB3DC-5744-4551-806F-3736F7277226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EFAB3DC-5744-4551-806F-3736F7277226}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C05673E7-43A2-4723-80BD-23B0ED4F7156} = {CF681D10-CFF2-4AD9-B6CF-E1A7E8610FFF}
+		{82717D95-2902-43B7-91ED-ED1A6D8E413E} = {D011697F-74D9-4A02-A2E7-035436294051}
+		{0587B38F-3A52-412F-9C6B-3573EE33F224} = {D011697F-74D9-4A02-A2E7-035436294051}
+		{D142F117-5B17-4B62-82BE-99EBDBC1ABAA} = {B750C5EF-707E-4EB2-8F52-F4C4ACA4FCA8}
+		{0EFAB3DC-5744-4551-806F-3736F7277226} = {B750C5EF-707E-4EB2-8F52-F4C4ACA4FCA8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F37C1A27-0D30-4271-B747-7F4684EB0158}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://mehax.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MikroTik.Application\\MikroTik.Application.csproj
+		SccProjectTopLevelParentUniqueName1 = MikroTik.sln
+		SccProjectName1 = MikroTik.Application
+		SccLocalPath1 = MikroTik.Application
+		SccProjectUniqueName2 = MikroTik.Domain\\MikroTik.Domain.csproj
+		SccProjectTopLevelParentUniqueName2 = MikroTik.sln
+		SccProjectName2 = MikroTik.Domain
+		SccLocalPath2 = MikroTik.Domain
+		SccProjectUniqueName3 = MikroTik.Infrastructure\\MikroTik.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName3 = MikroTik.sln
+		SccProjectName3 = MikroTik.Infrastructure
+		SccLocalPath3 = MikroTik.Infrastructure
+		SccProjectUniqueName4 = MikroTik.Persistence\\MikroTik.Persistence.csproj
+		SccProjectTopLevelParentUniqueName4 = MikroTik.sln
+		SccProjectName4 = MikroTik.Persistence
+		SccLocalPath4 = MikroTik.Persistence
+		SccProjectUniqueName5 = MikroTik.WebApi\\MikroTik.WebApi.csproj
+		SccProjectTopLevelParentUniqueName5 = MikroTik.sln
+		SccProjectName5 = MikroTik.WebApi
+		SccLocalPath5 = MikroTik.WebApi
+	EndGlobalSection
+EndGlobal
