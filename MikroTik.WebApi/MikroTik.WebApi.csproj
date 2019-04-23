@@ -24,4 +24,20 @@
     <ProjectReference Include="..\MikroTik.Persistence\MikroTik.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="ClientApp\node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="ClientApp\node_modules\**" />
+  </ItemGroup>
+
 </Project>
