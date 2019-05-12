@@ -11,6 +11,7 @@ pipelines:
         caches:
           - dotnetcore
         script: # Modify the comma`nds below to build your repository.
+          - ssh root@imrobot.info
           - export SYSTEMCTL_NAME=kestrel-mikrotik
           - export PROJECT_NAME=MikroTik.WebApi
           - export PROJECT_PATH=/var/www/imrobot.info/tik
