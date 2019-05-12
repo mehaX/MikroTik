@@ -11,15 +11,4 @@ pipelines:
         caches:
           - dotnetcore
         script: # Modify the comma`nds below to build your repository.
-          - ssh root@imrobot.info
-          - export SYSTEMCTL_NAME=kestrel-mikrotik
-          - export PROJECT_NAME=MikroTik.WebApi
-          - export PROJECT_PATH=/var/www/imrobot.info/tik
-          - export REPO_GIT=https://mehaX@bitbucket.org/mehaxsvr/mikrotik.git
-          - export REPO_GIT_NAME=mikrotik
-          - cd /usr/src/deployments
-          - git clone $REPO_GIT $REPO_GIT_NAME
-          - cd $REPO_GIT_NAME
-          - dotnet restore
-          - dotnet build $PROJECT_NAME
-          - dotnet publish $PROJECT_NAME -c Release
+          - ssh root@imrobot.info ~/mikrotik-deploy.sh
