@@ -8,4 +8,4 @@ pipelines:
   default:
     - step:
         script: # Modify the comma`nds below to build your repository.
-          - ssh root@imrobot.info ~/mikrotik-deploy.sh
+          - ssh root@imrobot.info ~/mikrotik-deploy.sh > output.log
