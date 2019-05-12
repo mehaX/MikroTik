@@ -26,7 +26,7 @@ namespace MikroTik.Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "Servers",
                 columns: new[] { "Id", "Hostname", "Password", "Port", "Username" },
-                values: new object[] { 1, "150.0.0.1", "mehaX4164", 8728, "mehaX" });
+                values: new object[] { 1, "150.0.0.1", "mehaX4164", 9599, "mehaX" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

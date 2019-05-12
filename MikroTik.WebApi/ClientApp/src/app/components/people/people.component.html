@@ -1,51 +1,20 @@
 <div class="container mt-5">
   <h3 class="mb-3">People</h3>
 
-  <div class="row">
-
-    <div class="col-md-4 col-lg-3 mb-3" *ngFor="let person of people">
-      <div class="card" [ngClass]="{'border-secondary': person.id}">
-        <div class="card-header p-2" [ngClass]="{'bg-secondary text-white': person.id}">
-          {{ person.name }}
-
-          <button class="btn btn-sm float-right px-1 py-0"
-                  *ngIf="!person.id" (click)="registerPerson(person)">
-            <span class="fas fa-save"></span>
-          </button>
-        </div>
-
-        <div class="card-body p-2">
-          <p>Address: {{ person.address.value }}</p>
-
-          <div class="list-group" *ngIf="person.devices">
-            <div class="list-group-item p-2" [ngClass]="{'': !!device.id}"
-                *ngFor="let device of person.devices">
-              <div class="d-flex w-100 justify-content-between align-items-start">
-                <h5 class="mb-1">{{ device.name || device.address.value }}</h5>
-                <span class="badge badge-secondary" *ngIf="device.connected">Connected</span>
-              </div>
-
-              <div>
-
-              </div>
-              <div *ngIf="device.uptime"><small>Uptime: {{ device.uptime }}</small></div>
-              <div><small>Download: {{ device.transferData.tx.humanValue }}</small></div>
-              <div><small>Upload: {{ device.transferData.rx.humanValue }}</small></div>
-
-              <div *ngIf="person.id" class="mt-1">
-                <button class="btn btn-light btn-sm"
-                        *ngIf="device.id" (click)="device.editable = true">
-                  <span class="fas fa-edit"></span> Rename
-                </button>
-                <button class="btn btn-secondary btn-sm"
-                        *ngIf="!device.id" (click)="registerDevice(device)">
-                  <span class="fas fa-save"></span> Save
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="row mb-3">
+    <div class="col">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="checkboxConnectedOnly"
+               [(ngModel)]="showConnectedOnly" (change)="updateConnectedOnlyCheckbox()">
+        <label class="custom-control-label" for="checkboxConnectedOnly">Show connected only</label>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-3" *ngFor="let person of people;"
+         [hidden]="showConnectedOnly && !isConnectedPerson(person)">
+      <app-person [person]="person" [showConnectedOnly]="showConnectedOnly"></app-person>
     </div>
   </div>
 </div>

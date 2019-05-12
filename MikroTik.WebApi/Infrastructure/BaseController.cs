@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MikroTik.WebApi.Infrastructure
 {
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
-        protected IMediator _mediator;
+        protected readonly IMediator Mediator;
 
         protected BaseController(IMediator mediator)
         {
-            _mediator = mediator;
+            Mediator = mediator;
         }
     }
 }

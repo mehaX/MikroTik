@@ -14,7 +14,7 @@ export class DevicesService {
   public renameDevice(device: Device): Observable<boolean> {
     return new Observable<boolean>(observer => {
       this.http.patch(environment.apiUrl +
-        `people/${device.personId}/devices/${device.id}/rename`, {name: device.name}).subscribe(() => {
+        `people/${device.personId}/devices/${device.id}/rename`, {name: device.newName}).subscribe(() => {
         observer.next(true);
       }, () => {
         observer.next(false);

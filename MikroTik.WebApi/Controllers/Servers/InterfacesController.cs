@@ -19,7 +19,7 @@ namespace MikroTik.WebApi.Controllers.Servers
         [HttpGet]
         public async Task<ActionResult<List<InterfaceModel>>> GetAll([FromRoute] int serverId)
         {
-            return Ok(await _mediator.Send(new GetAllInterfacesQuery {ServerId = serverId}));
+            return Ok(await Mediator.Send(new GetAllInterfacesQuery {ServerId = serverId}));
         }
     }
 }

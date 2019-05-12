@@ -9,9 +9,9 @@ namespace MikroTik.Domain.ValueObjects
 
         public TransferData(string value)
         {
-            var data = value.Split('/');
             try
             {
+                var data = value.Split('/');
                 Tx = new ByteUnit(Convert.ToInt32(data[0]));
                 Rx = new ByteUnit(Convert.ToInt32(data[1]));
             }

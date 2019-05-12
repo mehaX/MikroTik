@@ -20,14 +20,14 @@ namespace MikroTik.WebApi.Controllers.Servers.People
         [HttpGet]
         public async Task<ActionResult<List<DeviceModel>>> GetAll([FromRoute] int serverId, [FromRoute] int personId)
         {
-            return await _mediator.Send(new GetPersonDevicesQuery {PersonId = personId});
+            return await Mediator.Send(new GetPersonDevicesQuery {PersonId = personId});
         }
 
         [HttpPatch("{deviceId}/rename")]
         public async Task<ActionResult<Unit>> Rename([FromRoute] int deviceId, [FromBody] RenameDeviceCommand command)
         {
             command.Id = deviceId;
-            return await _mediator.Send(command);
+            return await Mediator.Send(command);
         }
     }
 }

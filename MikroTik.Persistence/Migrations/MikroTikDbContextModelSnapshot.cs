@@ -71,16 +71,6 @@ namespace MikroTik.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Servers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Hostname = "150.0.0.1",
-                            Password = "mehaX4164",
-                            Port = 8728,
-                            Username = "mehaX"
-                        });
                 });
 #pragma warning restore 612, 618
         }

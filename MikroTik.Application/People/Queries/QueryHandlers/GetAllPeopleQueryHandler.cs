@@ -29,14 +29,14 @@ namespace MikroTik.Application.People.Queries.QueryHandlers
         public async Task<List<PersonModel>> Handle(GetAllPeopleQuery request, CancellationToken cancellationToken)
         {
             // Retrieve server data from db
-            var server = await _dbContext.Servers.FirstOrDefaultAsync(s => s.Id == request.ServerId);
+            var server = await _dbContext.Servers.FirstOrDefaultAsync(s => s.Id == request.ServerId, cancellationToken);
 
             // Retrieve server's people from db
-            var people = await _dbContext.People.Where(p => p.ServerId == server.Id).ToListAsync();
+            var people = await _dbContext.People.Where(p => p.ServerId == server.Id).ToListAsync(cancellationToken);
 
             // Retrieve server's devices from db
             var peopleIds = people.Select(p => p.Id).ToList();
-            var devices = await _dbContext.Devices.Where(d => peopleIds.Contains(d.PersonId)).ToListAsync();
+            var devices = await _dbContext.Devices.Where(d => peopleIds.Contains(d.PersonId)).ToListAsync(cancellationToken);
 
             _tikService.CreateConnection(server); // Create mikrotik connection
             var queues = _tikService.Connection.LoadAll<QueueSimple>().ToList(); // Retrieve server's queues from mikrotik

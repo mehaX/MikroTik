@@ -1,11 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Server} from '../../models/server';
 import {ServersService} from '../../services/servers.service';
 import {Person} from '../../models/person';
 import {PeopleService} from '../../services/people.service';
-import {Device} from '../../models/device';
-import {DevicesService} from '../../services/devices.service';
 
 @Component({
   selector: 'app-people',
@@ -17,12 +15,17 @@ export class PeopleComponent implements OnInit {
   server: Server;
   people: Person[] = [];
 
+  showConnectedOnly: boolean = false;
+
   constructor(private route: ActivatedRoute,
               private serversService: ServersService,
-              private peopleService: PeopleService,
-              private devicesService: DevicesService) { }
+              private peopleService: PeopleService) { }
 
   ngOnInit() {
+    this.peopleService.getConnectedOnlyValue().subscribe(value => {
+      this.showConnectedOnly = value;
+    });
+
     this.route.params.subscribe(params => {
       this.serverId = params.serverId || 1;
 
@@ -36,26 +39,13 @@ export class PeopleComponent implements OnInit {
     });
   }
 
-  registerPerson(person: Person): void {
-    this.peopleService.register(person).subscribe(result => {
-      person.id = result.id;
-      person.devices = result.devices;
-    });
+  isConnectedPerson(person: Person): boolean {
+    return person.devices.filter(device => {
+      return device.isConnected;
+    }).length > 0;
   }
 
-  renameDevice(device: Device): void {
-    this.devicesService.renameDevice(device).subscribe(() => {
-      device.editable = false;
-    });
-  }
-
-  renameDeviceKey($event, device: Device): void {
-    if ($event.keyCode === 13) {
-      this.renameDevice(device);
-    }
-  }
-
-  registerDevice(device: Device): void {
-
+  updateConnectedOnlyCheckbox(): void {
+    this.peopleService.saveConnectedOnlyValue(this.showConnectedOnly);
   }
 }

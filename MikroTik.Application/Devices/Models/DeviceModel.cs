@@ -14,7 +14,7 @@ namespace MikroTik.Application.Devices.Models
         public int? PersonId { get; set; }
         public string Name { get; set; }
         public string HostName { get; set; }
-        public bool Connected { get; set; }
+        public bool IsConnected { get; set; }
         public TimeSpan? Uptime { get; set; }
         public IPAddress Address { get; set; }
         public string MacAddress { get; set; }
@@ -42,7 +42,7 @@ namespace MikroTik.Application.Devices.Models
                     var host = hosts.FirstOrDefault(h => h.Address == lease.Address);
                     if (host != null)
                     {
-                        newDevice.Connected = true;
+                        newDevice.IsConnected = true;
                         newDevice.Uptime = host.UpTime;
                         newDevice.TransferData = new TransferData(host.BytesIn, host.BytesOut);
 
@@ -70,7 +70,7 @@ namespace MikroTik.Application.Devices.Models
                     Id = device.Id,
                     Name = device.Name,
                     Address = new IPAddress(device.Address),
-                    Connected = false,
+                    IsConnected = false,
                     MacAddress = device.MacAddress
                 }))
                 .ToList();

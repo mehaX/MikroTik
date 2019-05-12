@@ -19,9 +19,9 @@
     },
     "MikroTik.WebApi": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "",
-      "applicationUrl": "https://localhost:6001;http://localhost:6000",
+      "applicationUrl": "https://localhost:6001;http://localhost:6002",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

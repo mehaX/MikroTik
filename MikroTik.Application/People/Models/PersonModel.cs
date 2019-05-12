@@ -37,6 +37,7 @@ namespace MikroTik.Application.People.Models
             List<QueueSimple> queues)
         {
             return queues
+                .Where(queue => new IPAddress(queue.Target).Segments != null)
                 .Select(queue =>
                 {
                     var person = people.FirstOrDefault(p => p.Address == queue.Target);

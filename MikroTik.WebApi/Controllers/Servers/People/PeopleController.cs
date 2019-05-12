@@ -20,19 +20,24 @@ namespace MikroTik.WebApi.Controllers.Servers.People
         [HttpGet]
         public async Task<ActionResult<List<PersonModel>>> GetAll([FromRoute] int serverId)
         {
-            return Ok(await _mediator.Send(new GetAllPeopleQuery(){ ServerId = serverId }));
+            var query = new GetAllPeopleQuery()
+            {
+                ServerId = serverId
+            };
+            
+            return Ok(await Mediator.Send(query));
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<PersonModel>> Get([FromRoute] int id)
         {
-            return Ok(await _mediator.Send(new GetPersonQuery() {Id = id}));
+            return Ok(await Mediator.Send(new GetPersonQuery() {Id = id}));
         }
 
         [HttpPost]
         public async Task<ActionResult<PersonModel>> Post([FromBody] RegisterPersonCommand command)
         {
-            return Ok(await _mediator.Send(command));
+            return Ok(await Mediator.Send(command));
         }
     }
 }

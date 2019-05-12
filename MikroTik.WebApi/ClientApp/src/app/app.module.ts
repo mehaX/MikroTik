@@ -6,6 +6,9 @@ import { ServersComponent } from './components/servers/servers.component';
 import { PeopleComponent } from './components/people/people.component';
 import {HttpClientModule} from '@angular/common/http';
 import {Route, RouterModule} from '@angular/router';
+import {FormsModule} from "@angular/forms";
+import { DeviceComponent } from './components/people/device/device.component';
+import { PersonComponent } from './components/people/person/person.component';
 
 const appRoutes: Route[] = [
   {
@@ -23,12 +26,15 @@ const appRoutes: Route[] = [
   declarations: [
     AppComponent,
     ServersComponent,
-    PeopleComponent
+    PeopleComponent,
+    DeviceComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

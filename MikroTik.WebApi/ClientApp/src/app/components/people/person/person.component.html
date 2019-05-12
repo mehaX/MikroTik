@@ -1,0 +1,24 @@
+
+<div class="card" [ngClass]="{'border-secondary': person.id}">
+  <div class="card-header p-2" [ngClass]="{'bg-secondary text-white': person.id}">
+    {{ person.name }}
+
+    <button class="btn btn-sm float-right px-1 py-0"
+            *ngIf="!person.id && !!person.address.segments" (click)="registerPerson()">
+            <span class="fas" [ngClass]="{'fa-save': !person.isRegistering,
+               'fa-spinner fa-spin': person.isRegistering}"></span>
+    </button>
+  </div>
+
+  <div class="card-body p-2">
+    <p>Address: {{ person.address.value }}</p>
+
+    <div class="list-group" *ngIf="person.devices">
+      <div class="list-group-item p-2" [ngClass]="{'': !!device.id}"
+        *ngFor="let device of person.devices"
+        [hidden]="showConnectedOnly && !device.isConnected">
+        <app-device [device]="device"></app-device>
+      </div>
+    </div>
+  </div>
+</div>

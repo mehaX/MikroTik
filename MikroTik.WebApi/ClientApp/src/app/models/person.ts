@@ -10,4 +10,5 @@ export class Person {
   transferData: TransferData;
 
   devices: Device[];
+  isRegistering?: boolean;
 }
