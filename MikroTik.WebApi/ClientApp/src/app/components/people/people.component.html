@@ -3,11 +3,11 @@
 
   <div class="row mb-3">
     <div class="col">
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="checkboxConnectedOnly"
-               [(ngModel)]="showConnectedOnly" (change)="updateConnectedOnlyCheckbox()">
-        <label class="custom-control-label" for="checkboxConnectedOnly">Show connected only</label>
-      </div>
+      <mat-checkbox color="primary"
+                    [(ngModel)]="showConnectedOnly"
+                    (change)="updateConnectedOnlyCheckbox()">
+        Show connected only
+      </mat-checkbox>
     </div>
   </div>
 

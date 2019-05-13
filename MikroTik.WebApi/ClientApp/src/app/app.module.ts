@@ -9,6 +9,16 @@ import {Route, RouterModule} from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import { DeviceComponent } from './components/people/device/device.component';
 import { PersonComponent } from './components/people/person/person.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {
+  MatBadgeModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDividerModule, MatExpansionModule, MatGridListModule, MatIconModule,
+  MatInputModule, MatListModule
+} from "@angular/material";
 
 const appRoutes: Route[] = [
   {
@@ -34,7 +44,20 @@ const appRoutes: Route[] = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+
+    BrowserAnimationsModule,
+    MatDividerModule,
+    MatCardModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatListModule,
+    MatGridListModule,
+    MatExpansionModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

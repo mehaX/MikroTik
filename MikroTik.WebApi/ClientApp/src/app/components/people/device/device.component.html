@@ -1,30 +1,23 @@
 
 
-<div class="d-flex w-100 justify-content-between align-items-start">
-  <h5 class="mb-1 text-break" *ngIf="!isEditableDevice" (dblclick)="makeEditableDevice()">
-    {{ device.name || device.address.value }}
-  </h5>
-  <input class="form-control" [hidden]="!isEditableDevice" #rename
-    [(ngModel)]="device.newName"
-    (keyup)="saveRenameDeviceKey($event)">
-  <span class="badge badge-secondary" *ngIf="device.isConnected">Connected</span>
-</div>
+<p>Address: {{ device.address.value }}</p>
+<p *ngIf="device.uptime">Uptime: {{ device.uptime }}</p>
+<p>Download: {{ device.transferData.tx.humanValue }}</p>
+<p>Upload: {{ device.transferData.rx.humanValue }}</p>
 
-<div>
+<mat-form-field [hidden]="!isEditableDevice">
+  <input matInput placeholder="Rename device" #rename
+         [(ngModel)]="device.newName"
+         (keyup)="saveRenameDeviceKey($event)">
+</mat-form-field>
 
-</div>
-<div><small>Address: {{ device.address.value }}</small></div>
-<div *ngIf="device.uptime"><small>Uptime: {{ device.uptime }}</small></div>
-<div><small>Download: {{ device.transferData.tx.humanValue }}</small></div>
-<div><small>Upload: {{ device.transferData.rx.humanValue }}</small></div>
-
-<div *ngIf="device.id" class="mt-1">
-  <button class="btn btn-light btn-sm"
+<mat-action-row>
+  <button mat-stroked-button
           *ngIf="!isEditableDevice" (click)="makeEditableDevice()">
     <span class="fas fa-edit"></span> Rename
   </button>
-  <button class="btn btn-secondary btn-sm"
+  <button mat-stroked-button
           *ngIf="isEditableDevice" (click)="saveRenameDevice()">
     <span class="fas fa-save"></span> Save
   </button>
-</div>
+</mat-action-row>
