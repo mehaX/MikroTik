@@ -11,4 +11,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="MikroTik.Domain.csproj.vspscc" />
+    <None Remove="MikroTik.Domain.csproj.DotSettings" />
+  </ItemGroup>
+
 </Project>

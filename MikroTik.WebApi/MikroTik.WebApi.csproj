@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\node_modules\**" />
+    <None Remove="MikroTik.WebApi.csproj.vspscc" />
   </ItemGroup>
 
   <ItemGroup>

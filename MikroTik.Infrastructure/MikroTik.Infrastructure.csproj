@@ -38,6 +38,7 @@
 
   <ItemGroup>
     <None Remove="obj\**" />
+    <None Remove="MikroTik.Infrastructure.csproj.vspscc" />
   </ItemGroup>
 
   <ItemGroup>

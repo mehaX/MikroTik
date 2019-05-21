@@ -31,4 +31,8 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="MikroTik.Persistence.csproj.vspscc" />
+  </ItemGroup>
+
 </Project>

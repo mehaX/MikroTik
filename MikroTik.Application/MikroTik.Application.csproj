@@ -21,4 +21,8 @@
     <ProjectReference Include="..\MikroTik.Persistence\MikroTik.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="MikroTik.Application.csproj.vspscc" />
+  </ItemGroup>
+
 </Project>
