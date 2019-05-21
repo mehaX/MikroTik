@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+bin
+obj
+*.vspscc
+*.DotSettings
+*.DotSettings.user
+.idea/
+.vs/

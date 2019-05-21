@@ -1,14 +1,11 @@
-<h3>Servers</h3>
+<div class="container mt-5">
+  <h3>Servers</h3>
 
-<mat-list>
-  <mat-list-item *ngFor="let server of servers">
-    <a [routerLink]="['server', server.id, 'people']" class="list-group-item">
-      {{ server.hostname }}
-    </a>
-  </mat-list-item>
-  <mat-list-item *ngFor="let server of servers">
-    <a [routerLink]="['server', server.id, 'people']" class="list-group-item">
-      {{ server.hostname }}
-    </a>
-  </mat-list-item>
-</mat-list>
+  <mat-list>
+    <mat-list-item *ngFor="let server of servers">
+      <a [routerLink]="['server', server.id, 'people']" class="list-group-item">
+        {{ server.hostname }}
+      </a>
+    </mat-list-item>
+  </mat-list>
+</div>
