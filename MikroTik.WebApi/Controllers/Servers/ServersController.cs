@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using MikroTik.Application.People.Services;
 using MikroTik.Application.Servers.Models;
 using MikroTik.Application.Servers.Queries;
 using MikroTik.WebApi.Infrastructure;
@@ -12,8 +13,9 @@ namespace MikroTik.WebApi.Controllers.Servers
     [ApiController]
     public class ServersController : BaseController
     {
-        public ServersController(IMediator mediator) : base(mediator)
+        public ServersController(IMediator mediator, IPeopleService peopleService) : base(mediator)
         {
+            peopleService.Start();
         }
 
         [HttpGet]

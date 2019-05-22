@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MikroTik.Application.People.Hubs;
+using MikroTik.Application.People.Services;
 using MikroTik.Application.Servers.Models;
 using MikroTik.Application.Servers.Queries.QueryHandlers;
 using MikroTik.Infrastructure.Tik4Net;
@@ -32,8 +34,6 @@ namespace MikroTik.WebApi
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddMediatR(typeof(GetAllServersQueryHandler).GetTypeInfo().Assembly);
 
-            services.AddDataProtection();
-
             // Add Infrastructure services
             services.AddScoped<TikService>();
 
@@ -53,10 +53,16 @@ namespace MikroTik.WebApi
                 });
             });
 
+            // Add SignalR
+            services.AddSignalR();
+
             // Add MVC
             services.AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ServerModel>());
+            
+            // Add Applications services
+            services.AddScoped<IPeopleService, PeopleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +79,11 @@ namespace MikroTik.WebApi
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<PeopleHub>("/people");
+            });
 
 //            app.UseHttpsRedirection();
             app.UseStatusCodePagesWithReExecute("/");
